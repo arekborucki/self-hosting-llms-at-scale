@@ -1,4 +1,4 @@
-"""Chapter 6, LAB 1: a four-level load sweep with vllm bench serve.
+"""Chapter 6, listing 6.2: a four-level load sweep with vllm bench serve.
 
 Runs the same workload shape at rising offered rates and saves one
 JSON result file per level. Start the server first:

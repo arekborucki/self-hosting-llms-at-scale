@@ -2,7 +2,7 @@
 
 Snapshot the server counters, run exactly one experiment, snapshot
 again, and subtract. The delta is that experiment's own footprint,
-which is what chapter 5's cumulative reads could not give.
+which a single cumulative read at the end of a session cannot give.
 """
 import re
 
@@ -22,7 +22,8 @@ def snapshot():
     text = requests.get(METRICS_URL).text
     out = {}
     for name in NAMES:
-        m = re.search(rf"vllm:{name}{{[^}}]*}}\s+([0-9.e+]+)", text)
+        m = re.search(rf"^vllm:{name}(?:{{[^}}]*}})?\s+([0-9.e+]+)",
+                      text, re.MULTILINE)
         out[name] = float(m.group(1)) if m else 0.0
     return out
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Chapter 6, LAB 4: clean single-stream decode measurement.
+# Chapter 6, section 6.3: clean single-stream decode measurement
 #
 # --max-concurrency 1 sends one request at a time, which is the right
 # setup for comparing with the single-stream bandwidth ceiling

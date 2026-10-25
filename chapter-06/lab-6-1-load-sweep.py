@@ -12,6 +12,9 @@ Recorded on one T4, vLLM 0.24.0, Qwen/Qwen3-4B (600 in / 150 out):
     4   req/s -> achieved 1.07, 160 tok/s, TTFT p95 79.8 s
 Knee between 1 and 2 offered requests per second.
 
+The recorded sweep ran without --temperature 0; this script adds it
+so that reruns are reproducible.
+
 Run a warm-up first and discard it:
     vllm bench serve --model Qwen/Qwen3-4B --dataset-name random \
       --random-input-len 600 --random-output-len 150 \

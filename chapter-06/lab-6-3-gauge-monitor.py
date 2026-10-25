@@ -1,4 +1,4 @@
-"""Chapter 6, LAB 3: sample the three gauges during a load run.
+"""Chapter 6, listing 6.3: sample the three gauges during a load run.
 
 Writes monitor.csv with one row per second: running, waiting,
 KV-cache fraction, GPU utilization. Run a benchmark alongside it.
@@ -6,12 +6,19 @@ KV-cache fraction, GPU utilization. Run a benchmark alongside it.
 Recorded trace (rate 2, one T4): running ramps 8 -> 22 -> 44 -> 55
 while KV climbs 0.14 -> 0.99; waiting rises only AFTER the cache
 pins at 0.99, peaking at 48; preemptions stay at zero.
+
+The recorded run used no --temperature 0; this script adds it so
+that reruns are reproducible.
 """
+import os
 import subprocess
 import time
 
+if os.path.exists("monitor.csv"):
+    os.remove("monitor.csv")
+
 SAMPLER = """
-for i in $(seq 1 150); do
+while true; do
   ts=$(date +%s)
   m=$(curl -s localhost:8000/metrics)
   run=$(echo "$m" | grep '^vllm:num_requests_running' | awk '{print $2}')
@@ -40,6 +47,7 @@ subprocess.run([
     "--metric-percentiles", "50,95",
 ])
 
+time.sleep(5)          # capture the drain after the last request
 monitor.terminate()
 
 try:

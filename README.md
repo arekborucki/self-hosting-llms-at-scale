@@ -8,4 +8,5 @@ Code, labs, and datasets for the Manning book "Self-Hosting LLMs at Scale: Deplo
 | [chapter-04/](chapter-04/) | Choosing the right model: golden set, harness, blind review script |
 | [chapter-05/](chapter-05/) | Inside the inference engine: mini-labs for TTFT, continuous batching, prefix caching |
 | [chapter-06/](chapter-06/) | Benchmarking and tuning: load sweeps, goodput, tuning, long-context labs |
+| [chapter-07/](chapter-07/) | Quantizing large models: lab harness, all configurations from tables 7.2 and 7.4, FP8 KV cache check |
 | [skills/](skills/) | AI skills for chapters 1-6: procedures from the book packaged for AI assistants |

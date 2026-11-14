@@ -10,6 +10,6 @@ Each folder is a skill: a set of instructions an AI assistant can load to apply 
 | `model-selection` | 4 | Choose a model with a license check, a golden set, and a decision file |
 | `vllm-performance-diagnosis` | 5 | Find why an inference server is slow, using prefill, decode, batching, and the KV cache |
 | `llm-endpoint-benchmarking` | 6 | Benchmark an endpoint, find its capacity, set an SLO, and tune it |
-| [quantization-decision](quantization-decision/) | Chapter 7: deciding whether and how to quantize a model, with a memory estimate script |
+| `quantization-decision` | 7 | Decide whether and how to quantize a model, check its quality and capacity, and record the choice |
 
 To use a skill, add its folder to your assistant's skills (for example, upload it in Claude's settings or place it in your project's skills directory).

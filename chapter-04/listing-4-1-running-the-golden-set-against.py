@@ -31,6 +31,8 @@ for line in open("golden_set.jsonl"):
         "prompt": item["prompt"],
         "criteria": item["criteria"],
         "answer": r.choices[0].message.content,
+        "finish_reason": r.choices[0].finish_reason,
+        "served_model": r.model,
         "tokens": r.usage.completion_tokens,
         "seconds": round(time.perf_counter() - start, 2),
     })

@@ -7,6 +7,7 @@ Scripts for the labs in chapter 7. Tested on a Kaggle notebook with Tesla T4 GPU
 | `lab_harness.py` | Helper functions: start the server, read the startup log, run the golden set from chapter 4, run the load sweep from chapter 6. `run_all` is listing 7.5. |
 | `run_labs.py` | Labs 7.1 to 7.4: every configuration from tables 7.2 and 7.4, plus the 16-bit 8B baseline on two T4s. |
 | `kv_cache_fp8_check.py` | Checks whether the card accepts an 8-bit KV cache (it does not on a T4). |
+| `long_prompts.py` | Lab 7.5: 4,000-token prompts for the 16-bit 4B and the 8B AWQ model. |
 
 Setup in a notebook:
 

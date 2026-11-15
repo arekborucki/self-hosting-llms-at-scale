@@ -28,7 +28,7 @@ Combining TP with 4-bit weights can give a much larger KV cache than either alon
 
 - Before every start, stop all vLLM processes, including workers named `VLLM::Worker_*`, and check that GPU memory is free. Run each pkill pattern as its own command, without a shell.
 - If a multi-GPU start runs out of memory, lower `--gpu-memory-utilization` (for example to 0.85 or 0.80) and use the same value for every layout you compare.
-- Read the startup log for the communication path: peer-to-peer support, custom all-reduce, and, across machines, the NCCL transport (`NCCL_DEBUG=TRACE`; `NET/Socket` means TCP, `NET/IB` means InfiniBand).
+- Read the startup log for the communication path: peer-to-peer support, custom all-reduce, and, across machines, the NCCL transport (`NCCL_DEBUG=TRACE`; `NET/Socket` is the socket transport over IP, `NET/IB` is RDMA over InfiniBand or RoCE).
 
 ## 4. Benchmark every layout the same way
 
